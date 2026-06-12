@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotels</title>
+</head>
+<body>
+
+<h2>Search Hotels</h2>
+
+<form method="GET">
+
+    <input
+        type="text"
+        name="location"
+        placeholder="Enter Location">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<a href="/hotels?sort=rating">
+    Sort By Rating
+</a>
+
+<br><br>
+
+<a href="/hotels?sort=price">
+    Sort By Price
+</a>
+
+<br><br>
+
+<a href="/hotels?sort=rooms">
+    Sort By Available Rooms
+</a>
+
+<br><br>
+<br><br>
+
+<br>
+
+<h2>Available Hotels</h2>
+
+<table border="1">
+
+<tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Rating</th>
+    <th>Price</th>
+    <th>Rooms</th>
+    <th>Action</th>
+</tr>
+
+{% for hotel in hotels %}
+<tr>
+    <td>{{ hotel.name }}</td>
+    <td>{{ hotel.location }}</td>
+    <td>{{ hotel.rating }}</td>
+    <td>{{ hotel.price }}</td>
+    <td>{{ hotel.rooms }}</td>
+    <td>
+        <a href="/book/{{ hotel.id }}">Book</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
